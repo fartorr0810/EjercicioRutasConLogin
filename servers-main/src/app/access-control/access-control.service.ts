@@ -27,4 +27,17 @@ export class AccessControlService {
     const token = this.getToken();
     // Aquí iría el endpoint para devolver el usuario para un token
   }
-}
+  esValido(token:string) {
+    const url = "http://localhost:8000/products";
+    const body = {
+      headers: {
+        'Authorization': 'Bearer '+token,
+        'Accept': 'application/json'
+      }
+    }
+    this.http.get(url,body).subscribe(data => {
+      console.log(data);
+    });
+    return true;
+    }
+  }

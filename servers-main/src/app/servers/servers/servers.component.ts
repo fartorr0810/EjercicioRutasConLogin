@@ -24,6 +24,9 @@ export class ServersComponent implements OnInit {
       console.log("No LOG");
       this.router.navigateByUrl("/");
     }
+    if (this.accesscontrol.getToken()!=null){
+      console.log(this.accesscontrol.esValido(this.accesscontrol.getToken()));
+    }
   }
 
   onReload() {
